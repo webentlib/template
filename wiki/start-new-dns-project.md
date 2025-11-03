@@ -1,11 +1,11 @@
-BACKEND
-=======
+Start new DNS project
+=====================
 
 ## ПОДГОТОВКА (СДЕЛАТЬ ОДИН РАЗ)
 
 1. Создать папки /www/ и /env/ | mkdir ~/Documents/www/ && mkdir ~/Documents/env/
 
-BACKEND
+Backend
 =======
 
 ## УСТАНОВКА DJANGO
