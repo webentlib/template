@@ -8,7 +8,7 @@ START NEW DNS PROJECT
 BACKEND
 =======
 
-## УСТАНОВКА DJANGO
+### УСТАНОВКА DJANGO
 
 1. Установить новый питон | https://www.python.org/
 1. Создать папку /myproject/ в /www/ | mkdir ~/Documents/www/myproject/
@@ -18,18 +18,18 @@ BACKEND
 5. Установить Django | pip install django
 6. Создать django-проект | mkdir api && django-admin startproject conf api
 
-## НАСТРОЙКА IDE
+### НАСТРОЙКА IDE
 
 1. Указать IDE путь к python-окружению | Interpretor -> Add -> ~/Documents/env/myproject/bin/python
 2. Указать IDE путь к Django и её настройкам | Enable Django Support -> Django project root, Settings
 3. Указать IDE Sources Root | Right click on '/api/' -> Mark Directory as > Sources Root
 
-## ПОДГОТОВКА К ПОДКЛЮЧЕНИЮ POSTGRESQL
+### ПОДГОТОВКА К ПОДКЛЮЧЕНИЮ POSTGRESQL
 
 1. Создать БД в PostgreSQL (настроить UI — DataGrip или аналог) | psql ; createdb myproject
 2. Установить PostgreSQL адаптер | pip install psycopg
 
-## ОКРУЖЕНИЕ, ЛОКАЛЬНЫЕ НАСТРОЙКИ И ПОДКЛЮЧЕНИЕ К POSTGRESQL
+### ОКРУЖЕНИЕ, ЛОКАЛЬНЫЕ НАСТРОЙКИ И ПОДКЛЮЧЕНИЕ К POSTGRESQL
 
 1. Создать окружение в /myproject/ | touch .env | см. template
 2. Создать шаблон окружения | cp .env .env.tmpl
@@ -39,12 +39,12 @@ BACKEND
 5. В самом низу settings.py добавить лейбл `# CUSTOM` для будующих настроек | см. template
 6. В самый низу settings.py, под `#CUSTOM` добавить `# Local` и импортировать локальные настройки | см. template
 
-## REQUIREMENTS
+### REQUIREMENTS
 
 1. Создать requirements.txt в /api/ | touch api/requirements.txt
 2. Установить pipdeptree | pip install pipdeptree
 
-## INVOKE
+### INVOKE
 
 1. Установить invoke | pip install invoke
 2. Создать tasks.py в /myproject/ | touch tasks.py | см. template
@@ -52,12 +52,12 @@ BACKEND
 4. Получить список установленных пакетов, вынести их руками в requirements.txt, исключив лишнее | invoke freeze
 5. Создать шаблон invoke | cp tasks.py tasks.py.tmpl
 
-## ПОДГОТОВКА К ПЕРВОМУ АППЛИКЕЙШЕНУ
+### ПОДГОТОВКА К ПЕРВОМУ АППЛИКЕЙШЕНУ
 
 1. Создать пакет /apps/ в /api/, внутри создать пустой пакет /migrations/, models.py, admin.py | см. template
 2. Подключить `apps` внизу `settings.py:INSTALLED_APPS` с лейблом `# Custom` | см. template
 
-## ПОЛЬЗОВАТЕЛИ
+### ПОЛЬЗОВАТЕЛИ
 
 1. Создать пакет /users/ в /api/apps/ с models.py, admin.py | см. template
 2. Отпроксировать models.py, admin.py пользователя в /api/apps/models.py, /api/apps/admin.py | см. template
@@ -65,7 +65,7 @@ BACKEND
 4. Указать модель пользователя в `settings.py:AUTH_USER_MODEL` в блоке `# CUSTOM` под новым лейблом `User` | см. template
 5. Там же можно указать время жизни сесии `SESSION_COOKIE_AGE` | см. template
 
-## ПОДГОТОВКА К ЗАПУСКУ
+### ПОДГОТОВКА К ЗАПУСКУ
 
 1. tasks.txt
 2. tasks.txt.tmpl
@@ -73,7 +73,7 @@ BACKEND
 4. Создать новую вкладку в консоли 'API', `cd api`, там будем вызывать `python manage.py runserver`
 5. Создать новую вкладку в консоли 'Migrate', `cd api`, там будем вызывать `python manage.py makemigraions ; python manage.py migrate`
 
-## ПЕРВЫЙ ЗАПУСК
+### ПЕРВЫЙ ЗАПУСК
 
 1. Migrate: Создать миграции | python manage.py makemigrations
 2. Migrate: Впервые смигрировать | python manage.py migrate
@@ -84,7 +84,7 @@ BACKEND
 API
 ===
 
-## NINJA
+### NINJA
 
 1. Установить django-ninja | pip install django-ninja
 2. Описать подключение ninja в api/api.py | см. template
@@ -93,7 +93,7 @@ API
 5. Создать первое АПИ (для пользователя) | см. template
 6. Указать АПИ пользователя в api/conf/apis.py | см. template
 
-## CSRF И STEM
+### CSRF И STEM
 
 1. Создать пакет /stem/ в /api/ | см. template
 2. Создать файл /api/stem/api_csrf.py | см. template
@@ -101,7 +101,7 @@ API
 DISTRIBUTED TASKS
 =================
 
-## СЕЛЕРИ
+### СЕЛЕРИ
 
 1. Установить celery | pip install celery
 2. api/app.py | см. template
@@ -117,33 +117,33 @@ LIB
 ПАНЕЛЬ АДМИНИСТРАТОРА
 =====================
 
-## ДОКУМЕНТАЦИЯ
+### ДОКУМЕНТАЦИЯ
 https://docs.djangoproject.com/en/5.2/ref/contrib/admin/admindocs/
 
 1. Установить docutils | pip install docutils
 2. Указать правило в urls.py (над /admin/) | см. template
 
-## ЗАЩИТА
+### ЗАЩИТА
 
 1. Защитить админа от брут-форса | см. template 'apps/users/secure/'
 2. Перемиеновать urls с /admin/ на что-то | см. template
 3. Опционально, на /admin/ поставить honeypot https://github.com/dmpayton/django-admin-honeypot
 
-## DAOS
+### DAOS
 https://github.com/webentlib/daos
 
 1. Пройти по иснструкции
 2. Описать меню в /api/stem/daos_menu.py
 3. Отнаследовать страницы, требующие тонкого управления от DaosAdmin
 
-## AXIS
+### AXIS
 
 1. Создать пакет /axis/ в /api/, внутри создать пустой пакет /migrations/, models.py, admin.py | см. template
 2. Подключить `axis` внизу `settings.py:INSTALLED_APPS` с лейблом `# Custom` | см. template
 3. Создать пакеты /tech/ и /access/ в /api/apps/ с models.py, admin.py | см. template
 4. Отпроксировать models.py, admin.py /tech/ и /access/ в /api/apps/models.py, /api/apps/admin.py | см. template
 
-## ВОЗМОЖНОСТИ ДЖАНГИ О КОТОРЫХ СТОИТ ЗНАТЬ
+### ВОЗМОЖНОСТИ ДЖАНГИ О КОТОРЫХ СТОИТ ЗНАТЬ
 
 1. The display decorator: https://docs.djangoproject.com/en/5.2/ref/contrib/admin/#the-display-decorator
 2. Admin actions: https://docs.djangoproject.com/en/5.2/ref/contrib/admin/actions/
