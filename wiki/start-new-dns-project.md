@@ -1,7 +1,7 @@
 START NEW DNS PROJECT
 =====================
 
-## ПОДГОТОВКА (СДЕЛАТЬ ОДИН РАЗ)
+### ПОДГОТОВКА (СДЕЛАТЬ ОДИН РАЗ)
 
 1. Создать папки /www/ и /env/ | mkdir ~/Documents/www/ && mkdir ~/Documents/env/
 
