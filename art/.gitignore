@@ -1,23 +1,9 @@
-node_modules
+# COMMON
 
-# Output
-.output
-.vercel
-.netlify
-.wrangler
-/.svelte-kit
-/build
+build/
+.svelte-kit/
+node_modules/
 
-# OS
-.DS_Store
-Thumbs.db
+# CUSTOM
 
-# Env
-.env
-.env.*
-!.env.example
-!.env.test
-
-# Vite
-vite.config.js.timestamp-*
-vite.config.ts.timestamp-*
+config.local.js

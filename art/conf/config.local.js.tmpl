@@ -1,0 +1,5 @@
+export const HMR = false;
+export const DEFAULT_API_HOST = 'http://127.0.0.1:8000';
+export const DOCKER_API_HOST = 'http://vmp-api:8000';
+export const IS_IN_DOCKER = process.env.IS_IN_DOCKER;
+export const API_HOST = IS_IN_DOCKER ? DOCKER_API_HOST : DEFAULT_API_HOST;
