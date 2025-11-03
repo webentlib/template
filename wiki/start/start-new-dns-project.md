@@ -1,7 +1,7 @@
 START NEW DNS PROJECT
 =====================
 
-### ПОДГОТОВКА (СДЕЛАТЬ ОДИН РАЗ)
+### ПОДГОТОВКА (ЕСЛИ СОВСЕМ ПЕРВЫЙ РАЗ)
 
 1. Создать папки /www/ и /env/ | mkdir ~/Documents/www/ && mkdir ~/Documents/env/
 
@@ -24,20 +24,30 @@ BACKEND
 2. Указать IDE путь к Django и её настройкам | Enable Django Support -> Django project root, Settings
 3. Указать IDE Sources Root | Right click on '/api/' -> Mark Directory as > Sources Root
 
-### ПОДГОТОВКА К ПОДКЛЮЧЕНИЮ POSTGRESQL
+### ЛОКАЛЬНЫЕ НАСТРОЙКИ
+
+1. Создать локальные настройки в /api/conf/ | touch api/conf/settings_local.py | см. template
+2. В самом низу settings.py добавить лейбл `# CUSTOM` для будующих настроек | см. template
+3. В самый низу settings.py, под `#CUSTOM` добавить `# Local` и импортировать локальные настройки | см. template
+
+### ПОДКЛЮЧЕНИЕ POSTGRESQL
 
 1. Создать БД в PostgreSQL (настроить UI — DataGrip или аналог) | psql ; createdb myproject
 2. Установить PostgreSQL адаптер | pip install psycopg
+3. Описать подключение к PostgreSQL в локальных настройках
+
+
+
+
+
+
+
 
 ### ОКРУЖЕНИЕ, ЛОКАЛЬНЫЕ НАСТРОЙКИ И ПОДКЛЮЧЕНИЕ К POSTGRESQL
 
 1. Создать окружение в /myproject/ | touch .env | см. template
 2. Создать шаблон окружения | cp .env .env.tmpl
-3. Создать локальные настройки в /api/conf/ | touch api/conf/settings_local.py | см. template
-4. Описать подключение к PostgreSQL в локальных настройках
 5. Создать шаблон локальных настроек | cp api/conf/settings_local.py api/conf/settings_local.py.tmpl
-5. В самом низу settings.py добавить лейбл `# CUSTOM` для будующих настроек | см. template
-6. В самый низу settings.py, под `#CUSTOM` добавить `# Local` и импортировать локальные настройки | см. template
 
 ### REQUIREMENTS
 
