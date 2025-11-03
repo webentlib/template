@@ -9,7 +9,8 @@ Backend
 =======
 
 ## УСТАНОВКА DJANGO
-
+[]()  | 
+------|------
 1. Установить новый питон | https://www.python.org/
 1. Создать папку /myproject/ в /www/ | mkdir ~/Documents/www/myproject/
 2. Открыть папку /myproject/ в IDE
