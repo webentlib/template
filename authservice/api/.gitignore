@@ -1,0 +1,8 @@
+# COMMON
+
+__pycache__/
+celerybeat*
+
+# CUSTOM
+
+settings_local.py
