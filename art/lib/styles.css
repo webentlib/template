@@ -1,0 +1,23 @@
+/* GLOBAL */
+
+body:has(main[data-name="HOME"]) {overflow-y:auto;}
+body {font-family:Arial, sans-serif;background:var(--body);}
+
+/* HEADER */
+
+.Header {height:var(--header-height);width:calc(100vw - var(--scrollbar-width-y));position:sticky;left:0;top:0;background:#fff;box-shadow:0 1px 0 rgba(0,0,0,0.1);display:flex;}
+    .Link {display:flex;align-items:center;text-decoration:none;padding:0 24px;color:#000;}
+    .Link:hover    {background:var(--hover);}
+    .Link:active   {background:var(--active);}
+    .Link._Current {background:var(--current);}
+    .Link._Opened {background:var(--opened);}
+
+    .Logo {font-weight:bold;}
+
+/* WRAPPER & HEADING & CHILDREN */
+
+.Wrapper {margin:0 auto;}
+    .Wrapper._Default {max-width:768px;}
+
+.Heading {}
+    .Title {}

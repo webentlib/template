@@ -1,0 +1,25 @@
+{
+	"extends": "./.svelte-kit/tsconfig.json",
+	"compilerOptions": {
+//		"rewriteRelativeImportExtensions": true,
+		"allowJs": true,
+		"checkJs": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"sourceMap": true,
+//		"strict": true,
+		"moduleResolution": "bundler",
+
+		/* CUSTOM */
+		"strict": false,  // TS18047: from is possibly null
+		"rewriteRelativeImportExtensions": false,  // TS2877: This import uses a .ts extension to resolve to an input TypeScript file, but will not be rewritten during emit because it is not a relative path.
+		"allowImportingTsExtensions": true,  // TS5097: An import path can only end with a .ts extension when allowImportingTsExtensions is enabled.
+	}
+	// Path aliases are handled by https://svelte.dev/docs/kit/configuration#alias
+	// except $lib which is handled by https://svelte.dev/docs/kit/configuration#files
+	//
+	// To make changes to top-level options such as include and exclude, we recommend extending
+	// the generated config; see https://svelte.dev/docs/kit/configuration#typescript
+}

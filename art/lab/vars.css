@@ -1,0 +1,24 @@
+:root {
+    --scrollbar-width-y: 0px;
+    --scrollbar-width-x: 0px;
+
+    --header-height: 60px;
+
+    --bold: 600;
+    --semibold: 500;
+    --border-radius: 2px;
+    --box-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+    --border-color: 1px 1px 0 rgba(0,0,0,0.2);
+
+    --body:    hsl(0, 0%, calc(100% - 3%));
+
+    --hover:   hsl(0, 0%, calc(100% - 5%));
+    --active:  hsl(0, 0%, calc(100% - 9%));
+    --current: hsl(0, 0%, calc(100% - 7%));
+    --opened:  hsl(0, 0%, calc(100% - 11%));
+
+    --hover-alpha:   hsl(0, 0%, 0%, calc(5  / 100));
+    --active-alpha:  hsl(0, 0%, 0%, calc(9  / 100));
+    --current-alpha: hsl(0, 0%, 0%, calc(7  / 100));
+    --opened-alpha:  hsl(0, 0%, 0%, calc(11 / 100));
+}
