@@ -1,7 +1,7 @@
 import type { Pattern, Layout, Error } from '/leg';
 
-const error: Error = { page: () => import('/src/error.svelte') }
-const layout: Layout = { page: () => import('/src/base.svelte'), error: error }
+const error: Error = () => import('/src/error.svelte');
+const layout: Layout = { page: () => import('/src/base.svelte'), error };
 
 export const patterns: Pattern[] = [
     {path: '', page: () => import('/src/home.svelte'), layouts: [layout], name: 'HOME'},
