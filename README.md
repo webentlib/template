@@ -5,7 +5,7 @@
     - Create folders: lab/, leg/, lib/ 
     - Create files: leg/index.ts, lib/index.ts, src/index.ts 
 
-# Router [ts](https://github.com/webentlib/template/blob/main/art/leg/router.ts)/[md](https://github.com/webentlib/gists/blob/main/router.md)
+# Router [.ts](https://github.com/webentlib/template/blob/main/art/leg/router.ts)/[.md](https://github.com/webentlib/gists/blob/main/router.md)
 
     Copy files:
     - leg/router.ts (reexport it in leg/index.ts)
