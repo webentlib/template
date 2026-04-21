@@ -1,9 +1,9 @@
-import type { Pattern, Layout } from '/leg';
+import type { Pattern, Layout, Error } from '/leg';
 
-const layout: Layout = { page: () => import('/src/base.svelte') }
+const error: Error = { page: () => import('/src/error.svelte') }
+const layout: Layout = { page: () => import('/src/base.svelte'), error: error }
 
 export const patterns: Pattern[] = [
-    {path: '', page: () => import('/src/home.svelte'), layouts: [layout], name: 'HOME'},
+    {path: '', page: () => import('/src/tasks/tasks.svelte'), layouts: [layout], name: 'HOME'},
     {path: 'test', page: () => import('/src/test.svelte'), layouts: [layout], wrapper: 'Default'},
-    // {re: 'test', page: () => import('/src/test.svelte'), layouts: layouts, wrapper: 'DEFAULT'},
 ]
