@@ -3,7 +3,7 @@
     - Delete: .gitignore, README.md, everything from src/ except app.html
     - Exclude and hide: .svelte-kit/, .vscode/, node_modules/
     - Create folders: lab/, leg/, lib/ 
-    - Create files: leg/index.ts, lib/index.ts, src/index.ts 
+    - Create files: leg/index.ts, lib/index.ts 
 
 # Router [.ts](https://github.com/webentlib/template/blob/main/art/leg/router.ts)/[.md](https://github.com/webentlib/gists/blob/main/router.md)
 
@@ -49,4 +49,8 @@
 
 # Bonus
     - Pin: styles.css, base.svelte, urls.ts
-    - Disable validations, including Sveltes': Languages & Frameworks -> TypeScript -> Svelte -> Disable 
+    - Disable validations, including Sveltes': Languages & Frameworks -> TypeScript -> Svelte -> Disable
+
+# Additional reexports:
+    - src/index.ts for src/stores.ts, src/dicts.ts
+    - sve.ts for everything from svelte
