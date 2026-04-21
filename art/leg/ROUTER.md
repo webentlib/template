@@ -27,15 +27,15 @@ export const patterns = [
 
 ## Installation:
 
-1) Download [router.ts](https://github.com/webentlib/gists/blob/main/router.ts) to some folder all external gists live.  
+### 1. Download [router.ts](https://github.com/webentlib/template/blob/main/art/leg/router.ts) to some folder all external gists live.  
 Next example is based that there is a `/leg/` folder in root containing `index.ts`:
 ```ts
 export * from './router.ts';
 ```
 
-2) Move `routes/` folder wherever you like, create `[...path]` folder inside.
+### 2. Move `routes/` folder wherever you like, create `[...path]` folder inside.
 
-3) Create 4 files:  
+### 3. Create 4 files:  
 `[...path]/+page.ts`:
 ```ts
 import {Router} from '/leg';
@@ -87,7 +87,7 @@ export async function load(params) {
 {/await}
 ```
 
-4) Create urls in root (same level with `package.json`):  
+### 4. Create urls in root (same level with `package.json`):  
 `urls.ts`:
 ```ts
 const layout = {page: () => import('/src/base.svelte')};
@@ -97,7 +97,7 @@ export const patterns = [
 ]
 ```
 
-5) Create sample pages in `/src/`:  
+### 5. Create sample pages in `/src/`:  
 `base.svelte`:
 ```svelte
 <script>
@@ -110,7 +110,7 @@ export const patterns = [
 Hello, world!
 ```
 
-6) Point svelte to routes folder you want it to be in:  
+### 6. Point svelte to routes folder you want it to be in:  
 `svelte.config.ts`:
 ```ts
 kit: {
@@ -120,7 +120,7 @@ kit: {
     },
 }
 ```
-7) Point tsconfig to root files/folders:  
+### 7. Point tsconfig to root files/folders:  
 `svelte.config.ts`:
 ```ts
 kit: {
@@ -144,7 +144,7 @@ kit: {
 }
 ```
 
-8) Allow vite look files in root:  
+### 8. Allow vite look files in root:  
 `vite.config.ts`:
 ```ts
 export default defineConfig({
@@ -177,9 +177,9 @@ export const patterns: Pattern[] = [
 ```
 
 Yes. One can specify:
-1) Layout array for any page.
-2) For sure multiple patterns can point to same page like `users` and `friends` in example in case same template but different data. 
-3) Custom error for any page or layout.
+### 1. Layout array for any page.
+### 2. For sure multiple patterns can point to same page like `users` and `friends` in example in case same template but different data. 
+### 3. Custom error for any page or layout.
 `error.svelte`:
 ```svelte
 <script lang="ts">
@@ -188,11 +188,11 @@ Yes. One can specify:
 <h1>{page.status}</h1>
 <div>{page.error.message}</div>
 ```
-4) `Pattern` and `Layout` has `universal` and `server` properties to point to `load` function in separate file: 
+### 4. `Pattern` and `Layout` has `universal` and `server` properties to point to `load` function in separate file: 
 ```js
     {path: '', universal: () => import('/src/home.server.js'), server: () => import('/src/home.js'), ...},
 ```
-5) Add any custom attributes like `title`, `h1`, `name` to be used later in layout/page.
+### 5. Add any custom attributes like `title`, `h1`, `name` to be used later in layout/page.
 `base.svelte`:
 ```svelte
 <script>
@@ -226,11 +226,11 @@ If one prefer both server and universal to be in `<script module>`:
 
 ## Downsides:
 
-1) Both `+page.server.js` and `+page.js` runs on every rote. No way to say 'call only `+page.js`'.
+### 1. Both `+page.server.js` and `+page.js` runs on every rote. No way to say 'call only `+page.js`'.
 
-2) `export const snapshot = {...}` not working.
+### 2. `export const snapshot = {...}` not working.
 
-3) No pragmatic way to specify options like `export let ssr = true;` probably one can do it like (not tested):
+### 3. No pragmatic way to specify options like `export let ssr = true;` probably one can do it like (not tested):
 `urls.ts`:
 ```ts
 {path: '', ..., options: { ssr: true }},
