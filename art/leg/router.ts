@@ -52,6 +52,7 @@ function formatSvelteError(e) {
     ].join('\n');
 }
 
+export let routeState = {};
 export const routeStore = writable();
 
 export const Router: any = {}
@@ -137,7 +138,8 @@ Router.error = async function(pathname) {
 Router.route = async function(params: any, isServer: boolean) {
     const pattern = Router.findPattern(params.url.pathname);
     const route = await Router.buildRoute(pattern, params.url);
+    routeStore.set(route);
+    routeState = route;
     const data = await Router.callLoads(params, route, isServer);
-    routeStore.update((x: any) => ({...x, ...route}));
     return data;
 }

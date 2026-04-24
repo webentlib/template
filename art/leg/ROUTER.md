@@ -55,21 +55,24 @@ export async function load(params) {
 `[...path]/+page.svelte`:
 ```svelte
 <script>
-    import { routeStore } from '/leg';
+    import { page } from '$app/state';
+    import { routeState } from '/leg';
     const { data } = $props();
 </script>
-{#snippet draw(routeStore, index)}
-    {@const Layout = routeStore.layouts[index]}
-    {@const Page = routeStore.page}
-    {#if routeStore.layouts.length && index < routeStore.layouts.length}
+{#snippet draw(route, index)}
+    {@const Layout = route.layouts[index]}
+    {@const Page = route.page}
+    {#if route.layouts.length && index < route.layouts.length}
         <Layout {data}>
-            {@render draw(routeStore, index + 1)}
+            {@render draw(route, index + 1)}
         </Layout>
     {:else}
         <Page {data}/>
     {/if}
 {/snippet}
-{@render draw($routeStore, 0)}
+{#key page.url.pathname}
+    {@render draw(routeState, 0)}
+{/key}
 ```
 
 `+error.svelte` (note — must be in `routes/`, not `[...path]`):

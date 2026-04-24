@@ -1,5 +1,6 @@
 <script>
-    import { routeStore } from '/leg';
+    import { page } from '$app/state';
+    import { routeState } from '/leg';
     const { data } = $props();
 </script>
 {#snippet draw(route, index)}
@@ -13,4 +14,6 @@
         <Page {data}/>
     {/if}
 {/snippet}
-{@render draw($routeStore, 0)}
+{#key page.url.pathname}
+    {@render draw(routeState, 0)}
+{/key}

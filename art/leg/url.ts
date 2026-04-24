@@ -4,9 +4,18 @@ import { page as pageState } from '$app/state';
 export const Url: any = {}
 
 
-Url.build = function(search_object={}) {
+Url.cleaned = function(params={}) {
+    const cleanedParams = Object.entries(params).filter(([_, value]) =>
+      value !== null && value !== undefined && value !== ''
+    ).map(([key, value]) => [key, String(value)]); // Ensure values are strings
+    return cleanedParams;
+}
 
-    const searchParams = new URLSearchParams(search_object)
+Url.build = function(params={}) {
+
+    const cleanedParams = Url.cleaned(params);
+
+    const searchParams = new URLSearchParams(cleanedParams)
     const searchString = searchParams.toString();
     const search = searchString ? '?' + searchString : '';
     const href = pageState.url.pathname + search + pageState.url.hash;
@@ -21,15 +30,12 @@ Url.build = function(search_object={}) {
     return url;
 }
 
-Url.modify = function(search_object={}) {
+Url.modify = function(params={}) {
 
-    const current_params = Object.fromEntries(new URLSearchParams(pageState.url.search));
-    const combined_params = {...current_params, ...search_object}
-    const cleaned_params = Object.entries(combined_params).filter(([_, value]) =>
-      value !== null && value !== undefined && value !== ''
-    );
+    const currentParams = Object.fromEntries(new URLSearchParams(pageState.url.search));
+    const combinedParams = {...currentParams, ...params}
 
-    const url = Url.build(cleaned_params)
+    const url = Url.build(combinedParams)
 
     return url;
 }
