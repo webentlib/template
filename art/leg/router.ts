@@ -52,8 +52,8 @@ function formatSvelteError(e) {
     ].join('\n');
 }
 
-export let routeState = {};
-export const routeStore = writable();
+export const routeStore = writable({});
+export const cacheStore = writable({});
 
 export const Router: any = {}
 
@@ -135,11 +135,16 @@ Router.error = async function(pathname) {
     return error;
 }
 
+Router.getRoute = async function(params: any) {
+    const pattern = Router.findPattern(params.url.pathname);
+    const route = await Router.buildRoute(pattern, params.url);
+    return route;
+}
+
 Router.route = async function(params: any, isServer: boolean) {
     const pattern = Router.findPattern(params.url.pathname);
     const route = await Router.buildRoute(pattern, params.url);
-    routeStore.set(route);
-    routeState = route;
     const data = await Router.callLoads(params, route, isServer);
+    routeStore.set(route);
     return data;
 }

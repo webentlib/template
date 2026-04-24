@@ -1,8 +1,13 @@
 <script>
     import { page } from '$app/state';
-    import { routeState } from '/leg';
+    import { Router } from '/leg';
     const { data } = $props();
+    let route = $state();
+    $effect(async () => {
+        route = await Router.getRoute(page);
+    });
 </script>
+
 {#snippet draw(route, index)}
     {@const Layout = route.layouts[index]}
     {@const Page = route.page}
@@ -14,6 +19,7 @@
         <Page {data}/>
     {/if}
 {/snippet}
-{#key page.url.pathname}
-    {@render draw(routeState, 0)}
-{/key}
+
+{#if route}
+    {@render draw(route, 0)}
+{/if}
